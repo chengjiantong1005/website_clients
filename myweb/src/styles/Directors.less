@@ -1,0 +1,112 @@
+.dir-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .dir-panel0{
+        animation:dir-panel-show0 1s linear 1;
+    }
+    .dir-panel1{
+        animation:dir-panel-show1 1s linear 1;
+    }
+    .dir-panel2{
+        animation:dir-panel-show2 1s linear 1;
+    }
+    .dir-panel3{
+        animation:dir-panel-show3 1s linear 1;
+    }
+    .dir-panel{
+        width: 685px;
+        height: 500px;
+        position: relative;
+        // animation:dir-panel-show 1s linear 1;
+        .tips{
+
+            font-size: 36px;
+            position: absolute;
+            color: #fff;
+            top: 276px;
+            left: 30px;
+        }
+        img{
+            width: 685px;
+            height: 305px;
+        }
+        .show-title{
+            font-size: 12px;
+            color: #999999;
+            text-align: right;
+            padding-right: 20px;
+        }
+        .desc{
+            padding-left: 30px;
+            .line-title{
+                font-size: 14px;
+                line-height: 50px;
+                color: #fff;
+            }
+            .line-desc{
+                font-size: 12px;
+                line-height: 25px;
+                color: #999;
+            }
+        }
+    }
+}
+
+@keyframes dir-panel-show {
+    0%{
+        opacity: 0
+    }
+    100%{
+        opacity: 1
+    }
+}
+
+@keyframes dir-panel-show0 {
+    0%{
+        margin-left: -30px;
+        margin-top: -30px;
+        opacity: 0;
+    }
+    100%{
+        margin-left: 0px;
+        margin-top: 0px
+    }
+}
+
+@keyframes dir-panel-show1 {
+    0%{
+        margin-right: -30px;
+        margin-top: -30px;
+        opacity: 0;
+    }
+    100%{
+        margin-right: 0px;
+        margin-top: 0px;
+    
+    }
+}
+
+@keyframes dir-panel-show2 {
+    0%{
+        margin-left: -30px;
+        margin-top: 30px;
+        opacity: 0;
+    }
+    100%{
+        margin-left: 0px;
+        margin-top: 0px
+    }
+}
+
+@keyframes dir-panel-show3 {
+    0%{
+        margin-right: -30px;
+        margin-top: 30px;
+        opacity: 0;
+    }
+    100%{
+        margin-left: 0px;
+        margin-top: 0px
+    }
+}

@@ -1,23 +1,32 @@
 import React, { Component, Fragment } from "react";
 import { Link, HashRouter as Router, Route } from "react-router-dom";
-import "../App.less";
-import Word from "../components/Word";
+
+import { Word, IconList } from "../components";
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      leave: false
+    };
   }
   interval = null;
   componentDidMount() {}
-  openModal = () => {
+  openModal = () => () => {
     this.setState({ modalVisible: true });
   };
   closeModal = () => {
     this.setState({ modalVisible: false });
   };
-
+  jump = url => () => {
+    this.setState({ leave: true }, () => {
+      setTimeout(() => {
+        this.props.history.push(url);
+      }, 500);
+    });
+  };
   render() {
-    let { modalVisible } = this.state;
+    let { modalVisible, leave } = this.state;
     let modalClassName = modalVisible
       ? "push-home"
       : modalVisible === false ? "close" : "";
@@ -28,10 +37,14 @@ export default class Home extends Component {
           <div className="close-icon" onClick={this.closeModal} />
         </div>
         <div className="push-body">
-          <img
-            className="push-fest-img"
-            src={require("../images/pushfest.png")}
-          />
+          <div className="push-fest-img-panel">
+            <img
+              className="push-fest-img"
+              src={require("../images/pushfest.png")}
+            />
+            <div className="push-fest-img-mask" />
+          </div>
+
           <div className="push-fest-logo">
             <img src={require("../images/pushfestword.png")} />
           </div>
@@ -65,22 +78,33 @@ export default class Home extends Component {
             className="App-logo2"
             alt="logo"
           />
-          <div className="mask" />
+          <div className={`mask ${leave ? "leave" : ""}`} />
         </div>
 
         <div className="nav-panel">
           <div className="nav-list">
             {[
               { value: "push fest", onClick: this.openModal },
-              { value: "Directors" },
-              { value: "work" },
-              { value: "about" },
-              { value: "SHANGHAI. LOS ANGELES. OSLO. tokyo." }
-            ].map(item => {
-              let { value, onClick = () => {} } = item;
+              {
+                value: "Directors",
+                url: "/Detail/Directors",
+                onClick: this.jump
+              },
+              { value: "work", url: "/Detail/Work", onClick: this.jump },
+              { value: "about", url: "/Detail/About", onClick: this.jump },
+              {
+                value: "SHANGHAI. LOS ANGELES. OSLO. tokyo.",
+                url: "/Detail/Offices",
+                onClick: this.jump
+              }
+            ].map((item, index) => {
+              let { value, onClick = () => {}, url } = item;
+              {
+                /* if (index === 0) { */
+              }
               return (
                 <div className="nav">
-                  <a onClick={onClick}>
+                  <a onClick={onClick(url)}>
                     {value.split("").map(word => {
                       if (word === " " || word === ".") {
                         return word;
@@ -91,17 +115,29 @@ export default class Home extends Component {
                   </a>
                 </div>
               );
+              {
+                /* } */
+              }
+              {
+                /* return (
+                <div className="nav">
+                  <Link to={url}>
+                    {value.split("").map(word => {
+                      if (word === " " || word === ".") {
+                        return word;
+                      } else {
+                        return <Word>{word.toLocaleUpperCase()}</Word>;
+                      }
+                    })}
+                  </Link>
+                </div>
+              ); */
+              }
             })}
           </div>
         </div>
 
-        <div className="icon-panel">
-          <div className="icon-list">
-            <div className="icon icon-1" />
-            <div className="icon icon-2" />
-            <div className="icon icon-3" />
-          </div>
-        </div>
+        <IconList />
         <div className="copy-right">all rights reserved - 2019</div>
       </div>
     ];
