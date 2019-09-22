@@ -23,7 +23,7 @@ export default class ImageList extends Component {
         {imgList.map((item, index) => {
           let { url, date } = item;
           return (
-            <div key={index} className={`img-panel imgpanel${index}`}>
+            <div key={index} className={`img-panel show imgpanel${index}`}>
               <img src={require(`../images/aboutpic_2.png`)} />
             </div>
           );

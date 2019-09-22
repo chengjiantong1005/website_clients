@@ -6,36 +6,64 @@ export default class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showClient: true
+      showClient: false,
+      isClose: false
     };
   }
   interval = null;
   componentDidMount() {}
+  onClick = clients => () => {
+    this.setState({ showClient: true, isClose: false });
+  };
+  closeClient = () => {
+    this.setState({ isClose: true });
+    setTimeout(() => {
+      this.setState({ showClient: false });
+    }, 500);
+  };
   jump = url => () => {
-    // debugger;
-    // console.log(this.props);
-    this.props.history.push(url);
+    let { showClient } = this.state;
+    this.closeClient();
+    setTimeout(() => {
+      this.props.history.push(url);
+    }, showClient ? 1000 : 0);
   };
   render() {
-    let { showClient } = this.state;
+    let { showClient, isClose } = this.state;
     let { pathname } = this.props;
     return (
-      <header className={`menu-header ${showClient ? "show-client" : ""}`}>
-        <Client className={`${showClient ? "show-client" : ""}`} />
+      <header
+        className={`menu-header ${isClose ? "close" : ""} ${showClient
+          ? "show-client"
+          : ""}`}
+      >
+        {showClient ? (
+          <Client
+            visible={showClient}
+            onClose={this.closeClient}
+            className={`${isClose ? "close" : ""}`}
+          />
+        ) : (
+          undefined
+        )}
         <div className="menu-panel">
           <div className="nav-list">
             {[
-              { url: "/", name: "CLIENTS" },
-              { url: "/Detail/Directors", name: "DIRECTORS" },
+              { url: "/", name: "CLIENTS", onClick: this.onClick },
+              {
+                url: "/Detail/Directors",
+                name: "DIRECTORS",
+                onClick: this.jump
+              },
               {},
-              { url: "/Detail/Offices", name: "OFFICES" },
-              { url: "/Detail/About", name: "ABOUT" }
+              { url: "/Detail/Offices", name: "OFFICES", onClick: this.jump },
+              { url: "/Detail/About", name: "ABOUT", onClick: this.jump }
             ].map(item => {
-              let { url, name } = item;
+              let { url, name, onClick } = item;
               if (url) {
                 return (
                   <div className={`nav ${pathname === url ? "current" : ""}`}>
-                    <a onClick={this.jump(url)}>{name}</a>
+                    <a onClick={onClick(url)}>{name}</a>
                   </div>
                 );
               }

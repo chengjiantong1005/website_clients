@@ -5,11 +5,64 @@ import { ImageList, IconList } from "../components";
 export default class Work extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      imgList: [
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        },
+        {
+          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          date: "brand 08_2019"
+        }
+      ]
+    };
   }
   interval = null;
   componentDidMount() {}
 
   render() {
+    let { imgList } = this.state;
     return [
       <div className="work">
         <div className="info-panel">
@@ -46,7 +99,7 @@ export default class Work extends Component {
           </div>
         </div>
         <div style={{ height: "50px" }} />
-        <ImageList />
+        <ImageList imgList={imgList} />
       </div>
     ];
   }

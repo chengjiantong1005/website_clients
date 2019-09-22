@@ -4,15 +4,27 @@ import { Link } from "react-router-dom";
 export default class Client extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      visible: false
+    };
   }
 
   interval = null;
   componentDidMount() {}
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      visible: nextProps.visible
+    };
+  }
+
   render() {
+    let { visible } = this.state;
     let { className } = this.props;
     return (
-      <div className={`client-panel ${className}`}>
+      <div
+        className={`client-panel ${className} ${visible ? "show-client" : ""}`}
+      >
         <div className="client-content">
           <div className="logo-list">
             {new Array(16).fill(1).map((item, index) => {
@@ -20,7 +32,7 @@ export default class Client extends Component {
             })}
           </div>
           <div className="text-panel">
-            <div className="close-icon" />
+            <div className="close-icon" onClick={this.props.onClose} />
             <div className="text-panel-title">
               Shanghai <div className="text-panel-tips">since 2006</div>
             </div>

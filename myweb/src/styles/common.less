@@ -25,12 +25,14 @@
     display: inline-block;
     width: 100%;
     position: fixed;
-    
-    
     background: #272727;
     z-index: 10;
     top: 0;
     left: 0;
+}
+.menu-header.close{
+    background: #272727;
+    animation: menuheader-bg 1s  linear 1;
 }
 .push-content{
     width: 1420px;
@@ -87,11 +89,14 @@ a{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
- 
+    .img-panel.show{
+        animation: imgpanel-show 2s linear 1;
+        opacity: 1;
+    }
     .img-panel{
         margin-bottom: 30px;
         width: 440px;
-        
+        opacity: 0;
         position: relative;
         .tips{
             background: url('../images/icon_bg.png') -82px -98px no-repeat;
@@ -176,6 +181,10 @@ a{
     overflow: hidden;
     position: relative;
     .img-list{
+        .img-panel{
+         
+        }
+       
         .imgpanel0{
 
         }
