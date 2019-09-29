@@ -10,52 +10,52 @@ export default class ImageList extends Component {
     this.state = {
       imgList: [
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019",
           id: "123"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          src: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         }
       ]
@@ -121,7 +121,7 @@ export default class ImageList extends Component {
               className={`img-panel ${show ? "show" : ""} imgpanel${index}`}
               onClick={this.jump(id)}
             >
-              <div className="tips" />
+              <div className="tips">TITLE</div>
               <img src={`${show ? src : ""}`} />
               <div className="date">{date}</div>
             </div>

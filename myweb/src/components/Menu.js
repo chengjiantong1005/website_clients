@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import "../styles/Menu.less";
+
 import { Client } from "../components";
+
 export default class Menu extends Component {
   constructor(props) {
     super(props);
@@ -24,18 +25,21 @@ export default class Menu extends Component {
   jump = url => () => {
     let { showClient } = this.state;
     this.closeClient();
-    setTimeout(() => {
-      this.props.history.push(url);
-    }, showClient ? 1000 : 0);
+    setTimeout(
+      () => {
+        this.props.history.push(url);
+      },
+      showClient ? 1000 : 0
+    );
   };
   render() {
     let { showClient, isClose } = this.state;
     let { pathname } = this.props;
     return (
       <header
-        className={`menu-header ${isClose ? "close" : ""} ${showClient
-          ? "show-client"
-          : ""}`}
+        className={`menu-header ${isClose ? "close" : ""} ${
+          showClient ? "show-client" : ""
+        }`}
       >
         {showClient ? (
           <Client
@@ -69,7 +73,11 @@ export default class Menu extends Component {
               }
               return (
                 <div className="nav">
-                  <div className="menu-logo" />
+                  <div
+                    style={{ cursor: "pointer" }}
+                    onClick={this.jump("/")}
+                    className="menu-logo"
+                  />
                 </div>
               );
             })}

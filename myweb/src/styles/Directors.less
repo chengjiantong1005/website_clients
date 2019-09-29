@@ -20,11 +20,12 @@
         position: relative;
         // animation:dir-panel-show 1s linear 1;
         .tips{
-
+            font-family: @Alternate;
+            letter-spacing: 4px;
             font-size: 36px;
             position: absolute;
             color: #fff;
-            top: 276px;
+            top: 288px;
             left: 30px;
         }
         img{
@@ -32,7 +33,7 @@
             height: 305px;
         }
         .show-title{
-            font-size: 12px;
+            .fontMediumItalic(10.5px);
             color: #999999;
             text-align: right;
             padding-right: 20px;
@@ -40,11 +41,13 @@
         .desc{
             padding-left: 30px;
             .line-title{
+                .text-panel-line();
                 font-size: 14px;
                 line-height: 50px;
                 color: #fff;
             }
             .line-desc{
+                .text-panel-desc();
                 font-size: 12px;
                 line-height: 25px;
                 color: #999;

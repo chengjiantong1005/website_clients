@@ -34,9 +34,17 @@
     color: #fff;
     text-align: center;
     animation: copyright 1.5s linear 1 0s;
-    position: absolute;
+    // position: absolute;
+    text-decoration: underline;
+    line-height: 20px;
+    font-family: @ApercuItalic;
+    margin-top: 80px;
+    font-size:13.5px;
+    letter-spacing: 2px;
+    color: #999;
     bottom: 50px;
-    width: 100%;
+    width: 320px;
+    border-bottom: 1px solid #999;
 }
 
 
@@ -60,6 +68,7 @@
         position: relative;
       
     }
+  
     .push-body{
         // width:calc(100% - 150px);
         margin-left: 100px;
@@ -211,39 +220,54 @@
     left: 60%;
     margin-left: 0;
     width: 40%;
+    .nav-panel{
+        display: none;
+        
+    }
     animation: toright 1s linear 1;
+    .push-name{
+        display: block;
+        
+    }
 }
 .content.close{
     animation: toleft 1s linear 1;
 }
 .content{
-    width: 50%;
+    width: 1280px;
     left: 50%;
-    margin-left: -25%;
+    margin-left: -640px;
     color: #fff;
     position: absolute;
     
     z-index: 1;
     height: 100%;
+    .push-name{
+        display: none;
+        font-size: 18px;
+        line-height: 150px;
+        text-align: center;
+        margin-top: 50px;
+    }
     .logo-panel{
         position: relative;
-        width: 325px;
-        height: 195px;
+        width: 475px;
+        height: 285px;
         margin: auto;
        
         text-align: center;
         // top: 50%;
-        margin-top: 200px;
+        margin-top: 180px;
         img{
-                width: 325px;
-                height: 195px;
+                width: 475px;
+                height: 285px;
                 margin: auto;
             }
         .mask{
-                width: 455px;
-                left: -130px;
+                width: 553px;
+                left: -83px;
                 z-index: 1;
-                height: 195px;
+                height: 285px;
                 background: #272727;
                 position: absolute;
                 animation: rotate 0.5s linear 1 0s;
@@ -265,16 +289,18 @@
         .nav-panel{
             color: #fff;
             margin: 50px auto 0;
-            
+            font-size: 21px;
             .nav-list{
                 display: flex;
                 align-content: flex-start;
                 width: 100%;
                 flex-direction: row;/*设置子元素的排列方向*/
                 flex-wrap: wrap;/*溢出则换行*/
-                line-height: 100px;
+                line-height: 110px;
+                letter-spacing: 3.1px;
                 .nav{
-                    width: 25%;
+                    width: 295px;
+                    padding-left: 25px;
                     text-align: center;
                     a{
                         display: inline-block;

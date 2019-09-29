@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import "../styles/About.less";
 
 import { ImageList, SmallImageList } from "../components";
 export default class Work extends Component {

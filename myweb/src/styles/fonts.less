@@ -1,0 +1,63 @@
+@font-path: './fonts';
+
+.set-font(@type, @weight, @style) {
+    @font-face {
+        font-family: '@{type}';
+        src: url('@{font-path}/@{type}.ttf') format('truetype');
+        src: url('@{font-path}/@{type}.eot');   /*IE9+:EOT*/
+        src: url('@{font-path}/@{type}.eot?#iefix') format('embedded-opentype'),   /* IE6-IE8 */
+        url('@{font-path}/@{type}.woff') format('woff'),   /* chrome、firefox */
+        url('@{font-path}/@{type}.ttf') format('truetype'),  /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('@{font-path}/@{type}.svg#svgFontName') format('svg');  /* iOS 4.1- */
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+ 
+.apercu-font(@type, @weight, @style) {
+    @font-face {
+        font-family: 'Apercu@{type}';
+        src: url('@{font-path}/Apercu@{type}.ttf') format('truetype');
+        src: url('@{font-path}/Apercu@{type}.eot');   /*IE9+:EOT*/
+        src: url('@{font-path}/Apercu@{type}.eot?#iefix') format('embedded-opentype'),   /* IE6-IE8 */
+        url('@{font-path}/Apercu@{type}.woff') format('woff'),   /* chrome、firefox */
+        url('@{font-path}/Apercu@{type}.ttf') format('truetype'),  /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('@{font-path}/Apercu@{type}.svg#svgFontName') format('svg');  /* iOS 4.1- */
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+
+.set-font('Alternate Gothic No2 D Regular',400,normal);
+
+
+.apercu-font-one(@type, @weight, @style) {
+    .apercu-font('@{type}', @weight, @style);
+}
+ 
+.apercu-font-one('', 400, normal);
+.apercu-font-one('-Bold', 400, normal);
+.apercu-font-one('-BoldItalic', 400, normal);
+.apercu-font-one('-Italic', 400, normal);
+.apercu-font-one('-Light', 400, normal);
+.apercu-font-one('-LightItalic', 400, normal);
+.apercu-font-one('-Medium', 400, normal);
+.apercu-font-one('-MediumItalic', 400, normal);
+.apercu-font-one('-Mono', 400, normal);
+
+@Apercu:Apercu;
+@ApercuBold:Apercu-Bold;
+@ApercuBoldItalic:Apercu-BoldItalic;
+@ApercuItalic:Apercu-Italic;
+@ApercuLight:Apercu-Light;
+@ApercuLightItalic:Apercu-LightItalic;
+@ApercuMedium:Apercu-Medium;
+@ApercuMediumItalic:Apercu-MediumItalic;
+@ApercuMono:Apercu-Mono;
+@Alternate:Alternate Gothic No2 D Regular;
+
+
+
+
+
+

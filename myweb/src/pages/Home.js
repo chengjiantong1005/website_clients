@@ -29,7 +29,9 @@ export default class Home extends Component {
     let { modalVisible, leave } = this.state;
     let modalClassName = modalVisible
       ? "push-home"
-      : modalVisible === false ? "close" : "";
+      : modalVisible === false
+      ? "close"
+      : "";
     return [
       modalVisible ? <div key="modal-mask" className="modal-mask" /> : "",
       <div key="pushfest" className={`push-fest ${modalClassName}`}>
@@ -51,21 +53,25 @@ export default class Home extends Component {
           <div className="push-fest-content">
             <p>2019</p>
             <p style={{ color: "#999" }}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip. sunt in culpa qui officia deserunt mollit anim id
-              est laborum. Sed ut perspiciatis unde omnis iste natus error sit
-              voluptatem accusantium doloremque laudantium, totam rem aperiam.
+              This Summer we brought PUSHFEST back to Central Studios. Over 1200
+              guests came throughout the night to enjoy an evening of film
+              screenings, photo exhibitions, interactive installations and local
+              food and beverages. We premiered “SHANGHAI 6”, the long awaited
+              Sequel of “Shanghai 5”, a video project documenting on Shanghai's
+              Skateboarding scene created by Charles Lanceplaine. Together with
+              Beats, we hosted a panel talk with special guests Leticia Bufoni
+              and Aori Nishimura, who shared their experiences touring the world
+              as professional female skateboarders. The Fest ended with a heavy
+              skate session with prices from Beats, Herschel, Carhartt and more.
             </p>
             <div className="push-results">
               <div style={{ float: "left", marginRight: "30px" }}>results:</div>
               <div style={{ float: "left" }}>
-                - 90M Views <br />- 70k Budget <br />- 900M Impressions
+                - Guests: 1200+ <br />- Social impressions: 100,000+
               </div>
             </div>
             <div className="push-link">
-              <a>visit website</a>
+              {/* <a>visit website</a> */}
               <img src={require("../images/pushfestword2.png")} />
             </div>
           </div>
@@ -85,12 +91,13 @@ export default class Home extends Component {
           <div className="nav-list">
             {[
               { value: "push fest", onClick: this.openModal },
+              { value: "work", url: "/Detail/Work", onClick: this.jump },
               {
                 value: "Directors",
                 url: "/Detail/Directors",
                 onClick: this.jump
               },
-              { value: "work", url: "/Detail/Work", onClick: this.jump },
+
               { value: "about", url: "/Detail/About", onClick: this.jump },
               {
                 value: "SHANGHAI. LOS ANGELES. OSLO. tokyo.",
@@ -115,29 +122,12 @@ export default class Home extends Component {
                   </a>
                 </div>
               );
-              {
-                /* } */
-              }
-              {
-                /* return (
-                <div className="nav">
-                  <Link to={url}>
-                    {value.split("").map(word => {
-                      if (word === " " || word === ".") {
-                        return word;
-                      } else {
-                        return <Word>{word.toLocaleUpperCase()}</Word>;
-                      }
-                    })}
-                  </Link>
-                </div>
-              ); */
-              }
             })}
           </div>
         </div>
-
+        <div className="push-name">tagline signature text goes here</div>
         <IconList />
+
         <div className="copy-right">all rights reserved - 2019</div>
       </div>
     ];

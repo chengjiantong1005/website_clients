@@ -1,58 +1,58 @@
 import React, { Component, Fragment } from "react";
-import "../styles/About.less";
 
 import { ImageList, IconList } from "../components";
+
 export default class Work extends Component {
   constructor(props) {
     super(props);
     this.state = {
       imgList: [
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         },
         {
-          url: `http://127.0.0.1:8081/aboutpic_2.png?${Math.random()}`,
+          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019"
         }
       ]
@@ -71,19 +71,17 @@ export default class Work extends Component {
             <div className="img-mask" />
           </div>
           <div className="text-panel">
-            <div className="text-panel-title">showreel</div>
+            <div className="text-panel-title">SHOWREEL</div>
 
             <div className="text-panel-desc">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              We love every project we do. Here a summary of our favourite
+              imagery captured over the past year.
             </div>
-            <div className="text-panel-desc">
+            {/* <div className="text-panel-desc">
               Duis aute irure dolor in reprehenderit in voluptate velit esse
               cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
               cupidatat non proident.
-            </div>
+            </div> */}
 
             <div className="address-text">january - 2019</div>
           </div>

@@ -19,14 +19,18 @@ export default class About extends Component {
           <div className="text-panel">
             <div className="text-panel-title">ABOUT US</div>
             <div className="text-panel-line">
-              PUSH IS A Worldwide BASED PRODUCTION COMPANY. We specialised i
+              PUSH IS A SHANGHAI BASED PRODUCTION COMPANY WITH OFFICES IN LOS
+              ANGELES AND OSLO
             </div>
             <div className="text-panel-desc">
-              PUSH IS A Worldwide BASED PRODUCTION COMPANY. We specialised i
-              PUSH IS A Worldwide BASED PRODUCTION COMPANY. We specialised i
-              PUSH IS A Worldwide BASED PRODUCTION COMPANY. We specialised i
-              PUSH IS A Worldwide BASED PRODUCTION COMPANY. We specialised i
-              PUSH IS A Worldwide BASED PRODUCTION COMPANY. We specialised i
+              WE ARE PROBABLY THE MOST RESPONSIBLE AND HARD WORKING BUNCH OF
+              SKATERS AND NINJAS YOU’VE EVER MET.
+            </div>
+            <div className="text-panel-desc">
+              WE WRITE. WE DIRECT. WE SHOOT.
+            </div>
+            <div className="text-panel-desc">
+              WE CREATE. WE ONLY DO WORK THAT WE LOVE.
             </div>
 
             <IconList />

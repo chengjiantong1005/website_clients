@@ -1,8 +1,47 @@
+
+@import "./fonts.less";
+
+.tips-title(){
+    font-size: 31.5px;
+    font-family: @Alternate;
+    letter-spacing: 6px;
+}
+.text-panel-line(){
+    font-size: 14px;
+    font-family: @ApercuMedium;
+    letter-spacing: 1px;
+}
+.text-panel-desc(){
+    font-size: 12px;
+    font-family: @ApercuMedium;
+}
+.fontMedium(@size){
+    font-family: @ApercuMedium;
+    font-size: @size;
+}
+.fontMediumItalic(@size){
+    font-family: @ApercuMediumItalic;
+    font-size: @size;
+    letter-spacing: 1px;
+}
+
+
 // 滚动条
 ::-webkit-scrollbar {
     width: 14px;
     height: 14px;
 }
+body{
+    overflow-x:hidden;
+    padding: 0;
+    margin: 0;
+    // transform: scale(0.75);
+    // transform-origin: center top;
+    // *{
+    //     transform: none
+    // }
+}
+
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb {
     border-radius: 999px;
@@ -54,13 +93,10 @@
     }
 }
 
-@font-face {
-    font-family: 'apercu';
-    // src: url(./styles/font/ABC011.ttf);
-}
+
 body{
     background: #272727;
-    font-family: 'apercu';
+    font-family: @Apercu;
     color: #fff;
 }
 h1{
@@ -73,7 +109,8 @@ h3{
 
 }
 h4{
-    font-size: 14px;
+    .fontMediumItalic(10.5px);
+
     font-weight: normal;
     line-height: 30px;
 }
@@ -99,16 +136,23 @@ a{
         opacity: 0;
         position: relative;
         .tips{
-            background: url('../images/icon_bg.png') -82px -98px no-repeat;
+            // font-size: 31.5px;
+            // letter-spacing: 6px;
+            // // background: url('../images/icon_bg.png') -82px -98px no-repeat;
+            // font-family: @Alternate;
+            .tips-title();
             width: 73px;
             height: 27px;
             position: absolute;
-            top: 191px;
+            top: 189px;
             left: 10px;
         }
         .date{
             color: #999;
             text-align: right;
+            font-size: 10.5px;
+            font-family: @ApercuMediumItalic;
+            letter-spacing: 2px;
         }
         img{
             width: 440px;
@@ -135,7 +179,7 @@ a{
 .icon-panel{
     position: relative;
     text-align: center;
-    margin: 100px auto 0;
+    margin: 50px auto 0;
 
     .icon-list{
         
@@ -206,6 +250,7 @@ a{
         }
     }
     .text-panel{
+        // font-family: @ApercuMedium;
         color: #fff;
         width: 450px;
         float: left;
@@ -219,15 +264,26 @@ a{
             background: url('../images/office-address.png') 0 0 no-repeat;
             width:452px ;
             height: 66px;
+
             position:absolute;
         }
-      
+        .address-text{
+            font-family: @ApercuMediumItalic;
+            font-size: 10.5px;
+            letter-spacing: 2px
+        }
         .office-address-text{
+            font-size: 10.5px;
             .label{
+                font-family:@ApercuMediumItalic;
+               
                 color: #999;
             }
+            .en-address{
+                font-family:@ApercuMediumItalic;
+            }
             bottom: 0;
-           
+          
             padding-right: 150px;
             position:absolute;
         }
@@ -242,10 +298,12 @@ a{
             background: url('../images/office-address.png') -5px 0 no-repeat;
         }
         .text-panel-title{
-            font-size: 32px;
+            .tips-title();
             padding-bottom: 20px;
+           
             .text-panel-tips{
-                font-size: 16px;
+                .fontMediumItalic(10.5px);
+                letter-spacing: 1px;
                 float: right;
                 margin-right: 60px
             }
@@ -253,17 +311,21 @@ a{
         }
         .text-panel-line{
             padding: 10px 0;
-            font-size: 16px;
+            .text-panel-line();
         }
+        
         .text-panel-desc{
-            font-size: 14px;
+            .text-panel-desc();
             color: #999;
             padding-bottom: 20px;
         }
         .contact-us{
             padding: 20px 0;
+            font-family:@ApercuMedium;
+            font-size: 10.5px;
             .contact-label{
                 color: #999;
+                font-family:@ApercuMediumItalic;
             }
         }
 
@@ -281,6 +343,7 @@ a{
     width: 40px;
     height: 40px;   
 }
+
 @import "./keyframes.less";
 @import "./About.less";
 @import "./Directors.less";
