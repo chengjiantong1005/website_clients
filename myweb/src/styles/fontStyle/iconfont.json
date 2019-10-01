@@ -1,0 +1,51 @@
+{
+  "id": "1443160",
+  "name": "pushfest",
+  "font_family": "pushfest",
+  "css_prefix_text": "pushfest",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11142753",
+      "name": "LC_icon_share_fill_2",
+      "font_class": "circle-copy",
+      "unicode": "eb68",
+      "unicode_decimal": 60264
+    },
+    {
+      "icon_id": "11142754",
+      "name": "arrow-down",
+      "font_class": "arrow-down-copy",
+      "unicode": "eb69",
+      "unicode_decimal": 60265
+    },
+    {
+      "icon_id": "11142756",
+      "name": "微信",
+      "font_class": "weixin-copy",
+      "unicode": "eb6b",
+      "unicode_decimal": 60267
+    },
+    {
+      "icon_id": "11142758",
+      "name": "close_cebianlan",
+      "font_class": "closecebianlan-copy-copy",
+      "unicode": "eb6d",
+      "unicode_decimal": 60269
+    },
+    {
+      "icon_id": "11142759",
+      "name": "arrow-up",
+      "font_class": "arrowup-copy",
+      "unicode": "eb6e",
+      "unicode_decimal": 60270
+    },
+    {
+      "icon_id": "11142760",
+      "name": "vimeo",
+      "font_class": "vimeo-copy",
+      "unicode": "eb6f",
+      "unicode_decimal": 60271
+    }
+  ]
+}

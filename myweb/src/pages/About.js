@@ -26,11 +26,9 @@ export default class About extends Component {
               WE ARE PROBABLY THE MOST RESPONSIBLE AND HARD WORKING BUNCH OF
               SKATERS AND NINJAS YOU’VE EVER MET.
             </div>
-            <div className="text-panel-desc">
-              WE WRITE. WE DIRECT. WE SHOOT.
-            </div>
-            <div className="text-panel-desc">
-              WE CREATE. WE ONLY DO WORK THAT WE LOVE.
+            <div className="text-panel-line">
+              WE WRITE. WE DIRECT. WE SHOOT. WE CREATE. WE ONLY DO WORK THAT WE
+              LOVE.
             </div>
 
             <IconList />

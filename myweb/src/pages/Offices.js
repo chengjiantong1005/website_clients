@@ -46,7 +46,7 @@ export default class Offices extends Component {
             </div>
           </div>
         </div>
-        <div style={{ height: "100px" }} />
+        <div style={{ height: "60px" }} />
         <h4>OUR LATEST PROJECTS</h4>
         <ImageList />
       </div>

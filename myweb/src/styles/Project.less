@@ -1,45 +1,46 @@
-.project{
-    .text-panel{
-        .close-icon{
-            top: 0px;
-            right: 0px;
-        }
+.project {
+  .text-panel {
+    .close-icon {
+      top: 0px;
+      right: 0px;
     }
-    .project-results{
-        clear: both;
-        position: relative;
-        overflow: hidden;
-        .text-panel-line();
-        div{
-            float: left;
-        }
+  }
+  .project-results {
+    clear: both;
+    position: relative;
+    overflow: hidden;
+    .text-panel-line();
+    div {
+      float: left;
     }
-    .project-results:after{
-        content: '';
-        width: 71px;
-        height: 66px;
-        display: block;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        background: url('../images/office-address.png') -5px 0 no-repeat;
+  }
+  .project-results:after {
+    content: "";
+    width: 71px;
+    height: 66px;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: url("../images/office-address.png") -5px 0 no-repeat;
+  }
+  .position-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    font-family: @ApercuMediumItalic;
+    font-size: 10.5px;
+    position: absolute;
+    bottom: 0;
+    .label {
+      color: #999;
     }
-   .position-list{
-       display: flex;
-       justify-content: space-between;
-       flex-wrap: wrap;
-        font-family:@ApercuMediumItalic;
-        font-size: 10.5px;
-       position: absolute;
-        bottom: 0;
-       .label{
-           color: #999;
-       }
-       .item{
-           width: 220px;
-       }
-       .item:nth-child(even){
-           text-align: right;
-       }
-   }
+    .item {
+      width: 180px;
+    }
+    .item:nth-child(even) {
+      text-align: right;
+    }
+  }
 }
