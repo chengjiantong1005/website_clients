@@ -83,7 +83,12 @@ export default class Work extends Component {
               cupidatat non proident.
             </div> */}
 
-            <div className="address-text">january - 2019</div>
+            <div
+              className="address-text"
+              style={{ position: "absolute", bottom: "0px" }}
+            >
+              january - 2019
+            </div>
           </div>
 
           <div className="filter-option">
@@ -96,7 +101,7 @@ export default class Work extends Component {
             <div className="arrow" />
           </div>
         </div>
-        <div style={{ height: "50px" }} />
+        <div style={{ height: "40px" }} />
         <ImageList imgList={imgList} />
       </div>
     ];
