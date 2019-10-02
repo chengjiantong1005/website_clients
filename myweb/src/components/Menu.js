@@ -77,7 +77,9 @@ export default class Menu extends Component {
                     style={{ cursor: "pointer" }}
                     onClick={this.jump("/")}
                     className="menu-logo"
-                  />
+                  >
+                    <img src={require("../images/menu_logo.png")} />
+                  </div>
                 </div>
               );
             })}

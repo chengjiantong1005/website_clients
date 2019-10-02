@@ -1,65 +1,61 @@
-
-.menu-panel::before{
-    
-    display: block;
-    content: '';
+.menu-panel::before {
+  display: block;
+  content: "";
 }
-.menu-panel{
-    color: #fff;
-    width: 1226px;
-    
-    margin: 30px auto 0;
-    
-    font-size: 12px;
-    
-    font-family: @ApercuMedium;
-    animation: menutop-to-30 1s linear 1;
-    .nav-list{
-        display: flex;
-        align-content: flex-start;
+.menu-panel {
+  color: #fff;
+  width: 1226px;
+
+  margin: 30px auto 0;
+
+  font-size: 12px;
+
+  font-family: @ApercuMedium;
+  animation: menutop-to-30 1s linear 1;
+  .nav-list {
+    display: flex;
+    align-content: flex-start;
+    width: 100%;
+    flex-direction: row; /*设置子元素的排列方向*/
+    flex-wrap: wrap; /*溢出则换行*/
+    line-height: 30px;
+    justify-content: space-between;
+    .nav.current {
+      a:after {
         width: 100%;
-        flex-direction: row;/*设置子元素的排列方向*/
-        flex-wrap: wrap;/*溢出则换行*/
-        line-height: 30px;
-        justify-content: space-between;
-        .nav.current{
-            a:after{
-                width: 100%;
-            }
-        }
-        .nav{
-           
-            text-align: center;
-            a{
-                display: inline-block;
-                line-height: 30px;
-            }
-            .menu-logo{
-                background: url("../images/icon_bg.png") 0 -89px no-repeat;
-                width: 61px;
-                margin: auto;
-                height: 37px;
-                margin-top:-5px;
-            }
-            a:after{
-                content: '';
-
-                display: block;
-                height: 2px;
-                background: #fff;
-                width: 0px;
-            }
-            a:hover:after{
-                width: 100%;
-                animation: width 0.2s linear 1 0s;
-            }
-        }
-        .nav:last-child{
-           
-           
-        }
-        
+      }
     }
+    .nav {
+      text-align: center;
+      a {
+        display: inline-block;
+        line-height: 30px;
+      }
+      .menu-logo {
+        // background: url("../images/icon_bg.png") 0 -89px no-repeat;
+        width: 50px;
+        margin: auto;
+        height: 30px;
+        margin-top: -5px;
+        img {
+          width: 50px;
+          height: 30px;
+        }
+      }
+      a:after {
+        content: "";
+
+        display: block;
+        height: 2px;
+        background: #fff;
+        width: 0px;
+      }
+      a:hover:after {
+        width: 100%;
+        animation: width 0.2s linear 1 0s;
+      }
+    }
+    .nav:last-child {
+    }
+  }
 }
-
-

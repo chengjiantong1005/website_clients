@@ -7,7 +7,8 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      leave: false
+      leave: false,
+      mouseIndex: -1
     };
   }
   interval = null;
@@ -25,8 +26,26 @@ export default class Home extends Component {
       }, 500);
     });
   };
+
+  setMouseIndex = mouseIndex => () => {
+    this.setState({ mouseIndex });
+  };
+
+  renderWorkByValue = (value, time1, time2) => {
+    return value.split("").map((word, wordIndex) => {
+      if (word === " " || word === ".") {
+        return word;
+      } else {
+        return (
+          <Word time1={time1} time2={time2} key={wordIndex}>
+            {word.toLocaleUpperCase()}
+          </Word>
+        );
+      }
+    });
+  };
   render() {
-    let { modalVisible, leave } = this.state;
+    let { modalVisible, leave, mouseIndex } = this.state;
     let modalClassName = modalVisible
       ? "push-home"
       : modalVisible === false
@@ -106,20 +125,21 @@ export default class Home extends Component {
               }
             ].map((item, index) => {
               let { value, onClick = () => {}, url } = item;
-              {
-                /* if (index === 0) { */
-              }
+
               return (
-                <div className="nav">
-                  <a onClick={onClick(url)}>
-                    {value.split("").map(word => {
-                      if (word === " " || word === ".") {
-                        return word;
-                      } else {
-                        return <Word>{word.toLocaleUpperCase()}</Word>;
-                      }
-                    })}
-                  </a>
+                <div
+                  className="nav"
+                  onMouseOver={this.setMouseIndex(index)}
+                  onMouseLeave={this.setMouseIndex(-1)}
+                >
+                  {mouseIndex === index ? (
+                    <a className="hover" onClick={onClick(url)}>
+                      {this.renderWorkByValue(value, 30, 300)}
+                    </a>
+                  ) : (
+                    undefined
+                  )}
+                  <a onClick={onClick(url)}>{this.renderWorkByValue(value)}</a>
                 </div>
               );
             })}

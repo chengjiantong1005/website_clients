@@ -38,20 +38,24 @@ export default class Word extends PureComponent {
   }
   interval = null;
   componentDidMount() {
+    this.setRoll();
+  }
+
+  setRoll = () => {
+    let { time1 = 500, time2 = 1000 } = this.props;
     setTimeout(() => {
       this.interval = setInterval(() => {
         let num = Math.ceil(Math.random(0) * 26);
         this.setState({ text: wordArr[num] });
       }, 10);
-    }, 500);
+    }, time1);
 
     setTimeout(() => {
       let { children } = this.props;
       clearInterval(this.interval);
       this.setState({ text: children });
-    }, 1000);
-  }
-
+    }, time2);
+  };
   render() {
     let { text } = this.state;
     return <Fragment>{text}</Fragment>;

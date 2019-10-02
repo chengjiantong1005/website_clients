@@ -68,6 +68,7 @@ export default class ImageList extends Component {
     this.startLoadImage();
   }
   jump = id => () => {
+    return router.history.push(`/Detail/Project/123`);
     if (id) {
       router.history.push(`/Detail/Project/${id}`);
     }
