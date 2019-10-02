@@ -52,6 +52,7 @@ export default class AppRouter extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/Detail" component={PrimaryLayout} />
+            <Route path="*" component={Home} />
           </Switch>
         </Route>
 
