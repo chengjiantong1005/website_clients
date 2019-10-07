@@ -14,16 +14,17 @@ export default class Work extends Component {
       .then(response => {
         let { data } = response;
         if (data.result) {
-          let imgList = data.data.map(item => {
-            let { name, brand, attachments = [], _id } = item;
+          let { detail = {}, morelikethis = [] } = data;
+          let imgList = morelikethis.map(item => {
+            let { name, brand, cover = [], _id } = item;
             return {
-              src: `/${(attachments[0] || {}).path}`,
+              src: `/${(cover[0] || {}).path}`,
               date: brand,
-              title: name,
-              id: _id
+              title: name
+              // id: _id
             };
           });
-          this.setState({ imgList });
+          this.setState({ imgList, detail });
         }
       })
       .catch(function(error) {
@@ -32,6 +33,8 @@ export default class Work extends Component {
   }
 
   render() {
+    let { detail, imgList } = this.state;
+    let { name } = detail;
     return [
       <div className="project about">
         <div className="info-panel">
@@ -42,7 +45,8 @@ export default class Work extends Component {
           <div className="text-panel">
             <div className="close-icon" />
             <div className="text-panel-title">
-              Shanghai<div className="text-panel-tips">since 2006</div>
+              {name}
+              <div className="text-panel-tips">since 2006</div>
             </div>
             <div className="text-panel-line">Ze headquarters</div>
             <div className="text-panel-desc">
