@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import axios from "axios";
 
 import { ImageList, IconList } from "../components";
 
@@ -6,60 +7,32 @@ export default class Work extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgList: [
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          url: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        }
-      ]
+      imgList: []
     };
   }
   interval = null;
-  componentDidMount() {}
+  async componentDidMount() {
+    await axios
+      .get("/webajax/project/list")
+      .then(response => {
+        let { data } = response;
+        if (data.result) {
+          let imgList = data.data.map(item => {
+            let { name, brand, attachments = [], _id } = item;
+            return {
+              src: `/${(attachments[0] || {}).path}`,
+              date: brand,
+              title: name,
+              id: _id
+            };
+          });
+          this.setState({ imgList });
+        }
+      })
+      .catch(function(error) {
+        // 处理请求出错的情况
+      });
+  }
 
   render() {
     let { imgList } = this.state;
@@ -102,7 +75,7 @@ export default class Work extends Component {
           </div>
         </div>
         <div style={{ height: "40px" }} />
-        <ImageList imgList={imgList} />
+        {imgList.length > 0 ? <ImageList imgList={imgList} /> : undefined}
       </div>
     ];
   }

@@ -8,7 +8,7 @@ export default class ImageList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgList: [
+      imgList: props.imgList || [
         {
           src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
           date: "brand 08_2019",
@@ -68,7 +68,7 @@ export default class ImageList extends Component {
     this.startLoadImage();
   }
   jump = id => () => {
-    return router.history.push(`/Detail/Project/123`);
+    return router.history.push(`/Detail/Project/${id}`);
     if (id) {
       router.history.push(`/Detail/Project/${id}`);
     }
@@ -115,14 +115,14 @@ export default class ImageList extends Component {
     return (
       <div className="img-list">
         {imgList.map((item, index) => {
-          let { src, id, date, show } = item;
+          let { src, id, date, show, title } = item;
           return (
             <div
               key={index}
               className={`img-panel ${show ? "show" : ""} imgpanel${index}`}
               onClick={this.jump(id)}
             >
-              <div className="tips">TITLE</div>
+              <div className="tips">{title}</div>
               <img src={`${show ? src : ""}`} />
               <div className="date">{date}</div>
             </div>

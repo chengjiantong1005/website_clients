@@ -1,12 +1,35 @@
 import React, { Component, Fragment } from "react";
-
+import axios from "axios";
 import { ImageList, SmallImageList } from "../components";
 export default class Work extends Component {
   constructor(props) {
     super(props);
   }
   interval = null;
-  componentDidMount() {}
+  async componentDidMount() {
+    // debugger;
+    let { id } = this.props.match.params;
+    await axios
+      .get(`webajax/project/${id}`)
+      .then(response => {
+        let { data } = response;
+        if (data.result) {
+          let imgList = data.data.map(item => {
+            let { name, brand, attachments = [], _id } = item;
+            return {
+              src: `/${(attachments[0] || {}).path}`,
+              date: brand,
+              title: name,
+              id: _id
+            };
+          });
+          this.setState({ imgList });
+        }
+      })
+      .catch(function(error) {
+        // 处理请求出错的情况
+      });
+  }
 
   render() {
     return [
