@@ -67,6 +67,8 @@ export default class Home extends Component {
           </div>
 
           <div className="push-fest-logo">
+            {/* <div>PUSH</div>
+            <div>FEST</div> */}
             <img src={require("../images/pushfestword.png")} />
           </div>
           <div className="push-fest-content">

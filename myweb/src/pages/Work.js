@@ -10,7 +10,7 @@ export default class Work extends Component {
       imgList: [],
       category: "",
       index: 1,
-      size: 100
+      size: 6
     };
   }
   interval = null;

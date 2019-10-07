@@ -1,99 +1,160 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 import { ImageList, SmallImageList } from "../components";
+import { getNumber, formatDateString } from "../utils";
+
 export default class Work extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      currentUrl: ""
+    };
   }
   interval = null;
   async componentDidMount() {
     // debugger;
+    document.addEventListener("click", () => {
+      this.setState({ currentUrl: "" });
+    });
+    this.getAjax();
+  }
+
+  getAjax = async () => {
     let { id } = this.props.match.params;
     await axios
       .get(`webajax/project/${id}`)
       .then(response => {
         let { data } = response;
+        // debugger;
         if (data.result) {
-          let { detail = {}, morelikethis = [] } = data;
+          let { detail = {}, morelikethis = [] } = data.data;
+          let { frames = [] } = detail;
           let imgList = morelikethis.map(item => {
-            let { name, brand, cover = [], _id } = item;
+            let { name, brand, cover = [], _id, frames = [] } = item;
             return {
               src: `/${(cover[0] || {}).path}`,
+              frames: cover.concat(frames),
               date: brand,
-              title: name
-              // id: _id
+              title: name,
+              id: _id
             };
           });
-          this.setState({ imgList, detail });
+
+          this.setState({
+            imgList,
+            detail,
+            frames: frames.map(item => {
+              let { path, brand } = item;
+
+              return {
+                src: `/${path}`,
+                date: brand
+              };
+            })
+          });
         }
       })
       .catch(function(error) {
         // 处理请求出错的情况
       });
-  }
+  };
 
+  onChange = () => {
+    this.getAjax();
+  };
+  onSmallImageChange = index => {
+    let { frames = [] } = this.state;
+    this.setState({ currentUrl: `${frames[index].src}` });
+  };
   render() {
-    let { detail, imgList } = this.state;
-    let { name } = detail;
+    let { detail = {}, imgList = [], frames = [], currentUrl } = this.state;
+    let {
+      name,
+      DP,
+      video = [],
+      director,
+      client,
+      description,
+      producer,
+      brief,
+      brand,
+      budget,
+      views,
+      impression,
+      location,
+      accountManager,
+      productionCompany
+    } = detail;
+
     return [
       <div className="project about">
         <div className="info-panel">
           <div className="info-img-panel">
-            <img src={require("../images/aboutpic_1.png")} />
+            {video.length > 0 && !currentUrl ? (
+              <video controls name={"media"}>
+                <source src={`/${(video[0] || {}).path}`} type="video/mp4" />
+              </video>
+            ) : (
+              undefined
+            )}
+            {currentUrl ? (
+              <img key={currentUrl} className=" img-opacity" src={currentUrl} />
+            ) : (
+              ""
+            )}
             <div className="img-mask" />
           </div>
           <div className="text-panel">
-            <div className="close-icon" />
+            <div
+              className="close-icon"
+              onClick={() => this.props.history.push("/Detail/Work")}
+            />
             <div className="text-panel-title">
               {name}
-              <div className="text-panel-tips">since 2006</div>
+              <div className="text-panel-tips">{formatDateString(brand)}</div>
             </div>
-            <div className="text-panel-line">Ze headquarters</div>
-            <div className="text-panel-desc">
-              Opened since XX lorem ipsum dolor sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            </div>
-            <div className="text-panel-line">Ze headquarters</div>
-            <div className="text-panel-desc">
-              Opened since XX lorem ipsum dolor sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            </div>
+            <div className="text-panel-line">BRIEF</div>
+            <div className="text-panel-desc">{brief}</div>
+            <div className="text-panel-line">DESCRIPTION</div>
+            <div className="text-panel-desc">{description}</div>
             <div className="project-results">
-              <div style={{ float: "left", marginRight: "30px" }}>results:</div>
+              <div style={{ float: "left", marginRight: "30px" }}>RESULTS:</div>
               <div style={{ float: "left" }}>
-                - 90M Views <br />- 70k Budget <br />- 900M Impressions
+                - {getNumber(views)} Views <br />- {getNumber(budget)} Budget{" "}
+                <br />- {getNumber(impression)}
+                Impressions
               </div>
             </div>
             <div className="position-list">
               {[
                 {
-                  label: "Director:",
-                  value: "Jonathon Lim"
+                  label: "DIRECTOR:",
+                  value: director
                 },
                 {},
                 {
-                  label: "Director:",
-                  value: "Jonathon Lim"
+                  label: "DP:",
+                  value: DP
                 },
                 {
-                  label: "Director:",
-                  value: "Jonathon Lim"
+                  label: "CLIENT:",
+                  value: client
                 },
                 {
-                  label: "Director:",
-                  value: "Jonathon Lim"
+                  label: "PRODUCER:",
+                  value: producer
                 },
                 {
-                  label: "Director:",
-                  value: "Jonathon Lim"
+                  label: "PRODUCTION　COMPANY:",
+                  value: productionCompany
                 },
                 {
-                  label: "Director:",
-                  value: "Jonathon Lim"
+                  label: "ACCOUNT MANAGER:",
+                  value: accountManager
                 },
                 {
-                  label: "Director:",
-                  value: "Jonathon Lim"
+                  label: "LOCATIONS:",
+                  value: location
                 }
               ].map(item => {
                 let { label, value } = item;
@@ -114,9 +175,13 @@ export default class Work extends Component {
           </div>
         </div>
         <h4>Still frames</h4>
-        <SmallImageList />
+        <SmallImageList onChange={this.onSmallImageChange} imgList={frames} />
         <h4>more like this</h4>
-        <ImageList />
+        {imgList.length > 0 ? (
+          <ImageList onChange={this.onChange} imgList={imgList} />
+        ) : (
+          undefined
+        )}
       </div>
     ];
   }

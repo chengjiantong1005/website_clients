@@ -35,7 +35,9 @@ export default class About extends Component {
             <div className="contact-us">
               Contact us:generalinquiries@pushmedia.co
             </div>
-            <div className="office-address" />
+            <div className="office-address">
+              SH&nbsp;&nbsp;LA&nbsp;&nbsp;OL&nbsp;&nbsp;TK
+            </div>
           </div>
         </div>
         <div style={{ height: "100px" }} />

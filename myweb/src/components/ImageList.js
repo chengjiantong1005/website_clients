@@ -1,13 +1,15 @@
 import React, { Component, Fragment } from "react";
 import { HashRouter } from "react-router-dom";
-
+import { formatDateString } from "../utils";
 import { Link } from "react-router-dom";
+import { ImageChangeList } from "../components";
 const router = new HashRouter();
 
 export default class ImageList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      hover: -1,
       imgList: props.imgList || [
         {
           src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
@@ -65,10 +67,12 @@ export default class ImageList extends Component {
 
   interval = null;
   componentDidMount() {
-    this.startLoadImage();
+    // this.startLoadImage();
   }
   jump = id => () => {
-    return router.history.push(`/Detail/Project/${id}`);
+    router.history.push(`/Detail/Project/${id}`);
+    this.props.onChange && this.props.onChange();
+    return;
     if (id) {
       router.history.push(`/Detail/Project/${id}`);
     }
@@ -104,27 +108,39 @@ export default class ImageList extends Component {
     this.loadImage(++num, arrList);
   };
 
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   return {
-  //     imgList: nextProps.imgList
-  //   };
-  // }
-
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      imgList: nextProps.imgList
+    };
+  }
+  componentDidUpdate = () => {
+    // this.startLoadImage();
+  };
+  toggleHover = index => () => {
+    this.setState({ hover: index });
+  };
   render() {
-    let { imgList = [] } = this.state;
+    let { imgList = [], hover } = this.state;
     return (
       <div className="img-list">
         {imgList.map((item, index) => {
-          let { src, id, date, show, title } = item;
+          let { src, id, date, show = true, title, frames = [] } = item;
           return (
             <div
-              key={index}
+              key={`${id}${index}`}
+              onMouseOver={this.toggleHover(index)}
+              onMouseLeave={this.toggleHover(-1)}
               className={`img-panel ${show ? "show" : ""} imgpanel${index}`}
               onClick={this.jump(id)}
             >
               <div className="tips">{title}</div>
               <img src={`${show ? src : ""}`} />
-              <div className="date">{date}</div>
+              {hover === index ? (
+                <ImageChangeList key={hover} frames={frames} />
+              ) : (
+                undefined
+              )}
+              <div className="date">{formatDateString(date)}</div>
             </div>
           );
         })}

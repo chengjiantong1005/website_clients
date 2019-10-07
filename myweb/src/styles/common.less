@@ -43,7 +43,7 @@
 
 .tips-title() {
   font-size: 31.5px;
-  font-family: @Alternate;
+  font-family: @Alternate1;
   letter-spacing: 6px;
 }
 .text-panel-line() {
@@ -159,6 +159,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+ 
   .img-panel.show {
     animation: imgpanel-show 2s linear 1;
     opacity: 1;
@@ -169,13 +170,14 @@ a {
     height: 210px;
     opacity: 0;
     position: relative;
+    cursor: pointer;
     .tips {
       // font-size: 31.5px;
       // letter-spacing: 6px;
       // // background: url('../images/icon_bg.png') -82px -98px no-repeat;
       // font-family: @Alternate;
       .tips-title();
-   
+      z-index: 2;
       position: absolute;
       top: 163px;
       left: 10px;
@@ -188,8 +190,26 @@ a {
       letter-spacing: 2px;
     }
     img {
+      cursor: pointer;
       width: 380px;
       height: 180px;
+      overflow: hidden;
+    }
+    img.change-img{
+      animation: none;
+      visibility: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
+  .img-panel:hover {
+    img{
+      visibility: hidden;
+    }
+    img.change-img{
+      visibility: visible;
     }
   }
 }
@@ -202,6 +222,7 @@ a {
     margin: 0 20px 20px 0;
   }
   img {
+    cursor: pointer;
     width: 146px;
     height: 95px;
   }
@@ -272,13 +293,18 @@ a {
     width: 810px;
     float: left;
     height: 455px;
-    img {
+    img,video {
+    
       width: 810px;
       margin-top: 0px;
       opacity: 1;
       animation: aboutmargin-top0 0.5s linear 1;
       // animation: menutop-to-30 1s linear 1;
       height: 455px;
+    }
+    img.img-opacity{
+      opacity:1;
+      animation: img-opacity 1s linear 1;
     }
     .img-mask {
     }
@@ -295,10 +321,16 @@ a {
     height: 264px;
     .office-address {
       bottom: 0;
-      background: url("../images/office-address.png") 0 0 no-repeat;
+      // background: url("../images/office-address.png") 0 0 no-repeat;
+      font-family: @Alternate2;
+      -webkit-text-stroke: 1.0px #fff;
+  
+      color:#272727;
       width: 100%;
-      height: 66px;
-
+      height: 78px;
+      font-size: 78px;
+      line-height: 78px;
+      letter-spacing: 2px;
       position: absolute;
     }
     .address-text {

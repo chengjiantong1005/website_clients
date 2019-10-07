@@ -5,6 +5,7 @@ import DirecotorList from "./DirecotorList.js";
 import IconList from "./IconList.js";
 import SmallImageList from "./SmallImageList.js";
 import Client from "./Client";
+import ImageChangeList from "./ImageChangeList";
 export {
   ImageList,
   Menu,
@@ -12,5 +13,6 @@ export {
   DirecotorList,
   IconList,
   SmallImageList,
-  Client
+  Client,
+  ImageChangeList
 };
