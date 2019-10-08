@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 
-import { ImageList, IconList } from "../components";
+import { ImageList, IconList, LoadMore } from "../components";
 import Context from "../components/Context";
+// const InfiniteScroll = reactScroll(React);
 export default class Work extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +11,9 @@ export default class Work extends Component {
       imgList: [],
       category: "",
       index: 1,
-      size: 6
+      size: 9,
+      hasMore: false, //是否存在下一页
+      isLoadingMore: false //是否正在加载
     };
   }
   interval = null;
@@ -24,13 +27,16 @@ export default class Work extends Component {
   };
 
   searchList = async () => {
-    let { category, index, size } = this.state;
+    let { category, index, size, imgList } = this.state;
+    await this.setState({
+      isLoadingMore: true
+    });
     await axios
       .get("/webajax/project/list", { params: { category, index, size } })
       .then(response => {
         let { data } = response;
         if (data.result) {
-          let imgList = data.data.map(item => {
+          let newImgList = data.data.map(item => {
             let { name, brand, cover = [], _id, frames = [] } = item;
             return {
               src: `/${(cover[0] || {}).path}`,
@@ -40,7 +46,12 @@ export default class Work extends Component {
               id: _id
             };
           });
-          this.setState({ imgList });
+          this.setState({
+            imgList: imgList.concat(newImgList),
+            isLoadingMore: false,
+            isLoadEnd: !(newImgList.length === size),
+            index: index + 1
+          });
         }
       })
       .catch(function(error) {
@@ -106,7 +117,18 @@ export default class Work extends Component {
           </Context.Consumer>
         </div>
         <div style={{ height: "40px" }} />
-        {imgList.length > 0 ? <ImageList imgList={imgList} /> : undefined}
+        {imgList.length > 0 ? (
+          <>
+            <ImageList imgList={imgList} />
+            <LoadMore
+              isLoadEnd={this.state.isLoadEnd}
+              isLoadingMore={this.state.isLoadingMore}
+              loadMoreFn={this.searchList.bind(this)}
+            ></LoadMore>
+          </>
+        ) : (
+          undefined
+        )}
       </div>
     ];
   }

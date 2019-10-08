@@ -6,6 +6,7 @@ import IconList from "./IconList.js";
 import SmallImageList from "./SmallImageList.js";
 import Client from "./Client";
 import ImageChangeList from "./ImageChangeList";
+import LoadMore from "./LoadMore";
 export {
   ImageList,
   Menu,
@@ -14,5 +15,6 @@ export {
   IconList,
   SmallImageList,
   Client,
-  ImageChangeList
+  ImageChangeList,
+  LoadMore
 };

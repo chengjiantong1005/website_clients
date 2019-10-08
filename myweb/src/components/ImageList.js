@@ -133,8 +133,21 @@ export default class ImageList extends Component {
               className={`img-panel ${show ? "show" : ""} imgpanel${index}`}
               onClick={this.jump(id)}
             >
-              <div className="tips">{title}</div>
+              <div className="tips" title={title}>
+                {title}
+              </div>
               <img src={`${show ? src : ""}`} />
+              {frames.map((item, subIndex) => {
+                let { src } = item;
+                //预加载
+                return (
+                  <img
+                    key={`${index}-${subIndex}`}
+                    src={src}
+                    style={{ visibility: "hidden", position: "absolute" }}
+                  />
+                );
+              })}
               {hover === index ? (
                 <ImageChangeList key={hover} frames={frames} />
               ) : (

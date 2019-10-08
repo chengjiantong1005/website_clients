@@ -7000,6 +7000,10 @@ react-error-overlay@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npm.taobao.org/react-error-overlay/download/react-error-overlay-6.0.1.tgz#b8d3cf9bb991c02883225c48044cb3ee20413e0f"
 
+react-infinite-scroll@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.npm.taobao.org/react-infinite-scroll/download/react-infinite-scroll-0.1.5.tgz#18204e4a238b1a69cabd43c2b26db94a5941f81a"
+
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
