@@ -29,21 +29,21 @@ class LoadMore extends PureComponent {
   //下拉加载更多的方法
   componentDidMount() {
     // 使用滚动时自动加载更多
-    const loadMoreFn = this.props.loadMoreFn;
+    // const loadMoreFn = this.props.loadMoreFn;
     const wrapper = this.refs.wrapper;
     let timeoutId;
     const callback = () => {
       const top = wrapper.getBoundingClientRect().top;
       const windowHeight = window.screen.height;
-      if (top && top < windowHeight) {
+      let { isLoadEnd } = this.props;
+      if (top && top < windowHeight && !isLoadEnd) {
         // 证明 wrapper 已经被滚动到暴露在页面可视范围之内了
-        loadMoreFn();
+        this.props.loadMoreFn();
       }
     };
     window.addEventListener(
       "scroll",
       function() {
-        debugger;
         if (this.props.isLoadingMore) {
           return;
         }

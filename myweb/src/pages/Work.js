@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 
-import { ImageList, IconList, LoadMore } from "../components";
+import { ImageList, IconList, LoadMore, ImageListPanel } from "../components";
 import Context from "../components/Context";
 // const InfiniteScroll = reactScroll(React);
 export default class Work extends Component {
@@ -18,12 +18,10 @@ export default class Work extends Component {
   }
   interval = null;
   async componentDidMount() {
-    this.searchList();
+    // this.searchList();
   }
   setCategory = category => () => {
-    this.setState({ category, index: 1, isLoadEnd: false }, () => {
-      this.searchList(true);
-    });
+    this.setState({ category, reload: true });
   };
 
   searchList = async (reload = false) => {
@@ -58,8 +56,9 @@ export default class Work extends Component {
         // 处理请求出错的情况
       });
   };
+
   render() {
-    let { imgList } = this.state;
+    let { category, reload } = this.state;
     return [
       <div className="work">
         <div className="info-panel">
@@ -117,7 +116,8 @@ export default class Work extends Component {
           </Context.Consumer>
         </div>
         <div style={{ height: "40px" }} />
-        {imgList.length > 0 ? (
+        <ImageListPanel category={category} reload={reload} />
+        {/* {imgList.length > 0 ? (
           <>
             <ImageList imgList={imgList} />
             <LoadMore
@@ -128,7 +128,7 @@ export default class Work extends Component {
           </>
         ) : (
           undefined
-        )}
+        )} */}
       </div>
     ];
   }

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 
-import { ImageList, IconList } from "../components";
+import { ImageList, IconList, ImageListPanel } from "../components";
 export default class About extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +42,8 @@ export default class About extends Component {
         </div>
         <div style={{ height: "100px" }} />
         <h4>OUR LATEST PROJECTS</h4>
-        <ImageList
+        <ImageListPanel />
+        {/* <ImageList
           imgList={[
             {
               title: "TITLE",
@@ -75,7 +76,7 @@ export default class About extends Component {
               date: "2019-10-10"
             }
           ]}
-        />
+        /> */}
       </div>
     ];
   }
