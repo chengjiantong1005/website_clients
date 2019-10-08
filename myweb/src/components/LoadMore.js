@@ -35,8 +35,8 @@ class LoadMore extends PureComponent {
     const callback = () => {
       const top = wrapper.getBoundingClientRect().top;
       const windowHeight = window.screen.height;
-      let { isLoadEnd } = this.props;
-      if (top && top < windowHeight && !isLoadEnd) {
+      let { isLoadEnd, isLoadingMore } = this.props;
+      if (top && top < windowHeight && !isLoadEnd && !isLoadingMore) {
         // 证明 wrapper 已经被滚动到暴露在页面可视范围之内了
         this.props.loadMoreFn();
       }

@@ -37,6 +37,7 @@ const ImageListPanel = props => {
           setLoadingMore(false);
           setReload(false);
           setLoadEnd(list.length === data.count);
+          debugger;
         }
       })
       .catch(function(error) {
@@ -51,7 +52,11 @@ const ImageListPanel = props => {
   }, [props.category]);
 
   useEffect(() => {
+    console.log("z", "----------------------");
     searchList({ category, index, size, reload });
+    return () => {
+      console.log("a", "-----------------------");
+    };
   }, [index, category]);
   return (
     <>
