@@ -7,7 +7,7 @@ class LoadMore extends PureComponent {
   render() {
     let { isLoadEnd, isLoadingMore } = this.props;
     if (isLoadEnd) {
-      return <span>end</span>;
+      return "";
     }
     return (
       <div className="load-more" ref="wrapper">
