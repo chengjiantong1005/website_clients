@@ -6,13 +6,14 @@ class LoadMore extends PureComponent {
   }
   render() {
     let { isLoadEnd, isLoadingMore } = this.props;
-    if (isLoadEnd) {
-      return "";
-    }
+
     return (
       <div className="load-more" ref="wrapper">
         {//如果正在加载中就显示加载中。不是就显示加载更多的按钮
-        isLoadingMore ? (
+
+        isLoadEnd ? (
+          ""
+        ) : isLoadingMore ? (
           <span>loading...</span>
         ) : (
           <span onClick={this.loadMoreHandle.bind(this)}>load more</span>
@@ -31,17 +32,18 @@ class LoadMore extends PureComponent {
     const loadMoreFn = this.props.loadMoreFn;
     const wrapper = this.refs.wrapper;
     let timeoutId;
-    function callback() {
+    const callback = () => {
       const top = wrapper.getBoundingClientRect().top;
       const windowHeight = window.screen.height;
       if (top && top < windowHeight) {
         // 证明 wrapper 已经被滚动到暴露在页面可视范围之内了
         loadMoreFn();
       }
-    }
+    };
     window.addEventListener(
       "scroll",
       function() {
+        debugger;
         if (this.props.isLoadingMore) {
           return;
         }

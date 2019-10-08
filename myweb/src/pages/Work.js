@@ -21,12 +21,12 @@ export default class Work extends Component {
     this.searchList();
   }
   setCategory = category => () => {
-    this.setState({ category }, () => {
-      this.searchList();
+    this.setState({ category, index: 1, isLoadEnd: false }, () => {
+      this.searchList(true);
     });
   };
 
-  searchList = async () => {
+  searchList = async (reload = false) => {
     let { category, index, size, imgList } = this.state;
     await this.setState({
       isLoadingMore: true
@@ -47,7 +47,7 @@ export default class Work extends Component {
             };
           });
           this.setState({
-            imgList: imgList.concat(newImgList),
+            imgList: reload === true ? newImgList : imgList.concat(newImgList),
             isLoadingMore: false,
             isLoadEnd: !(newImgList.length === size),
             index: index + 1
