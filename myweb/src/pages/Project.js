@@ -19,10 +19,10 @@ export default class Work extends Component {
     this.getAjax();
   }
 
-  getAjax = async () => {
+  getAjax = async jumpId => {
     let { id } = this.props.match.params;
     await axios
-      .get(`webajax/project/${id}`)
+      .get(`webajax/project/${jumpId || id}`)
       .then(response => {
         let { data } = response;
         // debugger;
@@ -59,8 +59,8 @@ export default class Work extends Component {
       });
   };
 
-  onChange = () => {
-    this.getAjax();
+  onChange = id => {
+    this.getAjax(id);
   };
   onSmallImageChange = index => {
     let { frames = [] } = this.state;
@@ -85,7 +85,7 @@ export default class Work extends Component {
       accountManager,
       productionCompany
     } = detail;
-
+    // debugger;
     return [
       <div className="project about">
         <div className="info-panel">
@@ -109,10 +109,10 @@ export default class Work extends Component {
               className="close-icon"
               onClick={() => this.props.history.push("/Detail/Work")}
             />
-            <div className="text-panel-title">
+            <div className="text-panel-title" title={name}>
               {name}
-              <div className="text-panel-tips">{formatDateString(brand)}</div>
             </div>
+            <div className="text-panel-tips">{formatDateString(brand)}</div>
             <div className="text-panel-line">BRIEF</div>
             <div className="text-panel-desc">{brief}</div>
             <div className="text-panel-line">DESCRIPTION</div>

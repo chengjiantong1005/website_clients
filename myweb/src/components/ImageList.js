@@ -19,9 +19,9 @@ export default class ImageList extends Component {
   componentDidMount() {
     // this.startLoadImage();
   }
-  jump = id => () => {
-    router.history.push(`/Detail/Project/${id}`);
-    this.props.onChange && this.props.onChange();
+  jump = id => async () => {
+    await router.history.push(`/Detail/Project/${id}`);
+    this.props.onChange && this.props.onChange(id);
     return;
     if (id) {
       router.history.push(`/Detail/Project/${id}`);
