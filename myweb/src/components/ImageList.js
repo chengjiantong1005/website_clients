@@ -137,13 +137,15 @@ export default class ImageList extends Component {
                 {title}
               </div>
               <img src={`${show ? src : ""}`} />
-              {frames.map((item, subIndex) => {
+              <ImageChangeList key={hover} frames={frames} />
+              {/* {frames.map((item, subIndex) => {
                 let { src } = item;
                 //预加载
                 return (
                   <img
                     key={`${index}-${subIndex}`}
                     src={src}
+                    className={`hover-img `}
                     style={{ visibility: "hidden", position: "absolute" }}
                   />
                 );
@@ -152,7 +154,7 @@ export default class ImageList extends Component {
                 <ImageChangeList key={hover} frames={frames} />
               ) : (
                 undefined
-              )}
+              )} */}
               <div className="date">{formatDateString(date)}</div>
             </div>
           );

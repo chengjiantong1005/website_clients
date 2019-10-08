@@ -45,12 +45,19 @@ export default class ImageChangeList extends Component {
     let imgItem = frames[index] || {};
 
     return (
-      <img
-        index={index}
-        key={`/${imgItem.path}`}
-        src={`/${imgItem.path}`}
-        className="change-img"
-      />
+      <>
+        {frames.map((item, picindex) => {
+          let { path } = item;
+          return (
+            <img
+              index={index}
+              key={`/${path}`}
+              src={`/${path}`}
+              className={`hover-img ${picindex === index}`}
+            />
+          );
+        })}
+      </>
     );
   }
 }
