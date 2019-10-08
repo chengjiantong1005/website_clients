@@ -10,57 +10,7 @@ export default class ImageList extends Component {
     super(props);
     this.state = {
       hover: -1,
-      imgList: props.imgList || [
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019",
-          id: "123"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        },
-        {
-          src: `http://119.3.238.112/aboutpic_2.png?${Math.random()}`,
-          date: "brand 08_2019"
-        }
-      ]
+      imgList: props.imgList
       //props.imgList || []
     };
   }
@@ -125,6 +75,20 @@ export default class ImageList extends Component {
       <div className="img-list">
         {imgList.map((item, index) => {
           let { src, id, date, show = true, title, frames = [] } = item;
+          if (!id) {
+            return (
+              <div
+                key={`${id}${index}`}
+                className={`img-panel ${show ? "show" : ""} imgpanel${index}`}
+              >
+                <div className="tips" title={title}>
+                  {title}
+                </div>
+                <img className="static-img" src={`${show ? src : ""}`} />
+                <div className="date">{formatDateString(date)}</div>
+              </div>
+            );
+          }
           return (
             <div
               key={`${id}${index}`}
@@ -138,23 +102,7 @@ export default class ImageList extends Component {
               </div>
               <img src={`${show ? src : ""}`} />
               <ImageChangeList key={hover} frames={frames} />
-              {/* {frames.map((item, subIndex) => {
-                let { src } = item;
-                //预加载
-                return (
-                  <img
-                    key={`${index}-${subIndex}`}
-                    src={src}
-                    className={`hover-img `}
-                    style={{ visibility: "hidden", position: "absolute" }}
-                  />
-                );
-              })}
-              {hover === index ? (
-                <ImageChangeList key={hover} frames={frames} />
-              ) : (
-                undefined
-              )} */}
+
               <div className="date">{formatDateString(date)}</div>
             </div>
           );

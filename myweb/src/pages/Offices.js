@@ -48,7 +48,40 @@ export default class Offices extends Component {
         </div>
         <div style={{ height: "60px" }} />
         <h4>OUR LATEST PROJECTS</h4>
-        <ImageList />
+        <ImageList
+          imgList={[
+            {
+              title: "TITLE",
+              src: `http://119.3.238.112/aboutpic_2.png`,
+              date: "2019-10-10"
+            },
+            {
+              title: "TITLE",
+              src: `http://119.3.238.112/aboutpic_2.png`,
+              date: "2019-10-10"
+            },
+            {
+              title: "TITLE",
+              src: `http://119.3.238.112/aboutpic_2.png`,
+              date: "2019-10-10"
+            },
+            {
+              title: "TITLE",
+              src: `http://119.3.238.112/aboutpic_2.png`,
+              date: "2019-10-10"
+            },
+            {
+              title: "TITLE",
+              src: `http://119.3.238.112/aboutpic_2.png`,
+              date: "2019-10-10"
+            },
+            {
+              title: "TITLE",
+              src: `http://119.3.238.112/aboutpic_2.png`,
+              date: "2019-10-10"
+            }
+          ]}
+        />
       </div>
     ];
   }
