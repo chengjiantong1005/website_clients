@@ -86,15 +86,20 @@ export default class Home extends Component {
               skate session with prices from Beats, Herschel, Carhartt and more.
             </p>
             <div className="push-results">
-              <div style={{ float: "left", marginRight: "30px" }}>results:</div>
+              <div
+                style={{
+                  float: "left",
+                  marginRight: "0.3rem",
+                  letterSpacing: "0.016rem"
+                }}
+              >
+                RESULTS:
+              </div>
               <div style={{ float: "left" }}>
                 - Guests: 1200+ <br />- Social impressions: 100,000+
               </div>
             </div>
-            <div className="push-link">
-              {/* <a>visit website</a> */}
-              <img src={require("../images/pushfestword2.png")} />
-            </div>
+            <div className="push-link">SH</div>
           </div>
         </div>
       </div>,
@@ -147,10 +152,10 @@ export default class Home extends Component {
             })}
           </div>
         </div>
-        <div className="push-name">tagline signature text goes here</div>
+        <div className="push-name">TAGLINE SIGNATURE TEXT GOES HERE</div>
         <IconList />
 
-        <div className="copy-right">all rights reserved - 2019</div>
+        <div className="copy-right">ALL RIGHTS RESERVED - 2019</div>
       </div>
     ];
   }

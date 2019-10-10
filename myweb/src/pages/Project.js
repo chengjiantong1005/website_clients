@@ -91,7 +91,12 @@ export default class Work extends Component {
         <div className="info-panel">
           <div className="info-img-panel">
             {video.length > 0 && !currentUrl ? (
-              <video controls name={"media"}>
+              <video
+                disablePictureInPicture
+                controls
+                name={"media"}
+                controlsList="nodownload disablepictureinpicture"
+              >
                 <source src={`/${(video[0] || {}).path}`} type="video/mp4" />
               </video>
             ) : (
@@ -174,9 +179,9 @@ export default class Work extends Component {
             </div> */}
           </div>
         </div>
-        <h4>Still frames</h4>
+        <h4>STILL FRAMES</h4>
         <SmallImageList onChange={this.onSmallImageChange} imgList={frames} />
-        <h4>more like this</h4>
+        <h4>MORE LIKE THIS</h4>
         {imgList.length > 0 ? (
           <ImageList onChange={this.onChange} imgList={imgList} />
         ) : (

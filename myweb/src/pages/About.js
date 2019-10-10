@@ -33,7 +33,7 @@ export default class About extends Component {
 
             <IconList />
             <div className="contact-us">
-              Contact us:generalinquiries@pushmedia.co
+              CONTACT US:generalinquiries@pushmedia.co
             </div>
             <div className="office-address">
               SH&nbsp;&nbsp;LA&nbsp;&nbsp;OL&nbsp;&nbsp;TK

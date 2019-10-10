@@ -50,14 +50,15 @@
 .tips-title() {
   font-size: 31.5px;
   font-family: @Alternate1;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
 }
 .text-panel-line() {
   font-size: 14px;
   font-family: @ApercuMedium;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 .text-panel-desc() {
+  letter-spacing: 1px;
   font-size: 10.5px;
   font-family: @ApercuMedium;
 }
@@ -76,11 +77,22 @@
   width: 14px;
   height: 14px;
 }
+video::-internal-media-controls-download-button {
+  display:none;
+}
 
+video::-webkit-media-controls-enclosure {
+  overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+  width: calc(100% + 30px); 
+}
 body {
   overflow-x: hidden;
   padding: 0;
   margin: 0;
+  letter-spacing: 1px;
   // transform: scale(0.75);
   // transform-origin: center top;
   // *{
@@ -102,11 +114,11 @@ body {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
-.menu-header.show-client {
+.menu-header.show-client { 
   background: #666;
 }
 .menu-header {
-  height: 112px;
+  height: 97px;
   display: inline-block;
   width: 100%;
   position: fixed;
@@ -124,7 +136,7 @@ body {
   margin: auto;
   overflow: hidden;
   position: relative;
-  padding-top: 112px;
+  padding-top: 97px;
   .icon-panel {
     text-align: left;
     margin-top: 20px;
@@ -149,7 +161,7 @@ h3 {
 }
 h4 {
   .fontMediumItalic(10.5px);
-
+  letter-spacing: 2.1px;
   font-weight: normal;
   line-height: 30px;
 }
@@ -158,7 +170,10 @@ a {
   color: #fff;
   text-decoration: none;
 }
-
+.img-list::after{
+  content: '';
+  width: 380px;
+}
 .img-list {
   clear: both;
   width: 100%;
@@ -232,6 +247,8 @@ a {
     margin: 0 20px 20px 0;
   }
   img {
+    display: block!important;
+    visibility: visible!important;
     cursor: pointer;
     width: 146px;
     height: 95px;
@@ -331,25 +348,26 @@ a {
     height: 264px;
     .office-address {
       bottom: 0;
-      // background: url("../images/office-address.png") 0 0 no-repeat;
-      font-family: @Alternate2;
+      font-family: Alternate Gothic No2 D Regular;
       -webkit-text-stroke: 1px #fff;
-
+      letter-spacing: 4.4px;
       color: #272727;
       width: 100%;
-      height: 78px;
+      
       font-size: 78px;
-      line-height: 78px;
-      letter-spacing: 2px;
+     
       position: absolute;
+      line-height: 58px;
+      overflow: hidden;
     }
     .address-text {
       font-family: @ApercuMediumItalic;
       font-size: 10.5px;
-      letter-spacing: 2px;
+      letter-spacing: 1.4px;
     }
     .office-address-text {
       font-size: 10.5px;
+      letter-spacing: 1.4px;
       .label {
         font-family: @ApercuMediumItalic;
 
@@ -400,6 +418,7 @@ a {
       padding: 20px 0;
       font-family: @ApercuMedium;
       font-size: 10.5px;
+      letter-spacing: 1.4px;
       .contact-label {
         color: #999;
         font-family: @ApercuMediumItalic;

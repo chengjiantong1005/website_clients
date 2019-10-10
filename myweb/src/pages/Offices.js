@@ -28,26 +28,26 @@ export default class Offices extends Component {
 
             <div className="web-chart-img" />
             <div className="contact-us">
-              <span className="contact-label">Office rep: </span>Miranda
-              Tsetzhklade
+              <span className="contact-label">OFFICE REP: </span>MIRANDA
+              TSETZHKLADE
               <br />
               <span className="contact-label">T.</span>
               {/* +86 13818930440  */}
               <br />
-              <span className="contact-label">contact us:</span>{" "}
-              kristian@pushmedia.co
+              <span className="contact-label">CONTACT US:</span>{" "}
+              KRISTIAN@PUSHMEDIA.CO
             </div>
             <div className="office-address-text">
               <div className="label">ADDRESS</div>
               <div className="en-address">
-                Wulumuqi Middle Road Lane 27 Building 5
+                WULUMUQI MIDDLE ROAD LANE 27 BUILDING 5
               </div>
               {/* 中山西路800弄,紫云57号，18B */}
             </div>
           </div>
         </div>
         <div style={{ height: "60px" }} />
-        <h4>OUR LATEST PROJECTS</h4>
+        <h4>PROJECTS DONE BY SHANGHAI OFFICE</h4>
         <ImageListPanel />
         {/* <ImageList
           imgList={[

@@ -83,7 +83,7 @@ export default class Work extends Component {
               className="address-text"
               style={{ position: "absolute", bottom: "0px" }}
             >
-              january - 2019
+              JANUARY - 2019
             </div>
           </div>
           <Context.Consumer>

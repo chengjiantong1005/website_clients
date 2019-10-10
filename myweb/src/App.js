@@ -41,7 +41,7 @@ function App() {
         </div>
       </div>
     </div>,
-    <div className="copy-right">all rights reserved - 2019</div>
+    <div className="copy-right">ALL RIGHTS RESERVED - 2019</div>
   ];
 }
 
