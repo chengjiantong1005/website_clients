@@ -71,6 +71,7 @@ export default class Work extends Component {
     let {
       name,
       DP,
+      office = "",
       video = [],
       director,
       client,
@@ -129,6 +130,7 @@ export default class Work extends Component {
                 <br />- {getNumber(impression)}
                 Impressions
               </div>
+              <div className="office">{office}</div>
             </div>
             <div className="position-list">
               {[
